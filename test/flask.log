@@ -1,0 +1,138 @@
+format = '2021-12-07 22:33:04,546 - website - WARNING - Warning msg-create_app',
+format = '2021-12-07 22:33:04,546 - website - ERROR - Error msg!!!-create_app',
+format = '2021-12-07 22:33:04,886 - website - WARNING - Warning msg-create_app',
+format = '2021-12-07 22:33:04,886 - website - WARNING - Warning msg-create_app',
+format = '2021-12-07 22:33:04,886 - website - ERROR - Error msg!!!-create_app',
+format = '2021-12-07 22:33:04,886 - website - ERROR - Error msg!!!-create_app',
+format = '2021-12-07 22:33:04,924 - website - WARNING - Warning msg-create_app',
+format = '2021-12-07 22:33:04,924 - website - WARNING - Warning msg-create_app',
+format = '2021-12-07 22:33:04,924 - website - WARNING - Warning msg-create_app',
+format = '2021-12-07 22:33:04,925 - website - ERROR - Error msg!!!-create_app',
+format = '2021-12-07 22:33:04,925 - website - ERROR - Error msg!!!-create_app',
+format = '2021-12-07 22:33:04,925 - website - ERROR - Error msg!!!-create_app',
+format = '2021-12-07 22:33:04,960 - website - WARNING - Warning msg-create_app',
+format = '2021-12-07 22:33:04,960 - website - WARNING - Warning msg-create_app',
+format = '2021-12-07 22:33:04,960 - website - WARNING - Warning msg-create_app',
+format = '2021-12-07 22:33:04,960 - website - WARNING - Warning msg-create_app',
+format = '2021-12-07 22:33:04,961 - website - ERROR - Error msg!!!-create_app',
+format = '2021-12-07 22:33:04,961 - website - ERROR - Error msg!!!-create_app',
+format = '2021-12-07 22:33:04,961 - website - ERROR - Error msg!!!-create_app',
+format = '2021-12-07 22:33:04,961 - website - ERROR - Error msg!!!-create_app',
+format = '2021-12-07 22:33:04,999 - website - WARNING - Warning msg-create_app',
+format = '2021-12-07 22:33:04,999 - website - WARNING - Warning msg-create_app',
+format = '2021-12-07 22:33:04,999 - website - WARNING - Warning msg-create_app',
+format = '2021-12-07 22:33:04,999 - website - WARNING - Warning msg-create_app',
+format = '2021-12-07 22:33:04,999 - website - WARNING - Warning msg-create_app',
+format = '2021-12-07 22:33:05,000 - website - ERROR - Error msg!!!-create_app',
+format = '2021-12-07 22:33:05,000 - website - ERROR - Error msg!!!-create_app',
+format = '2021-12-07 22:33:05,000 - website - ERROR - Error msg!!!-create_app',
+format = '2021-12-07 22:33:05,000 - website - ERROR - Error msg!!!-create_app',
+format = '2021-12-07 22:33:05,000 - website - ERROR - Error msg!!!-create_app',
+format = '2021-12-07 23:19:02,101 - website - ERROR - Exception on /sign_up [POST]-log_exception',
+Traceback (most recent call last):
+  File "E:\messages\python\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
+    self.dialect.do_execute(
+  File "E:\messages\python\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: user
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\messages\python\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\messages\python\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\messages\python\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "E:\messages\python\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "E:\messages\python\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\messages\python\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Web3\cw2\blog\Flask-Blog-Tutorial-main\tutorial5\website\auth.py", line 41, in sign_up
+    email_exists = User.query.filter_by(email=email).first()
+  File "E:\messages\python\lib\site-packages\sqlalchemy\orm\query.py", line 2810, in first
+    return self.limit(1)._iter().first()
+  File "E:\messages\python\lib\site-packages\sqlalchemy\orm\query.py", line 2894, in _iter
+    result = self.session.execute(
+  File "E:\messages\python\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "E:\messages\python\lib\site-packages\sqlalchemy\engine\base.py", line 1614, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "E:\messages\python\lib\site-packages\sqlalchemy\sql\elements.py", line 325, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "E:\messages\python\lib\site-packages\sqlalchemy\engine\base.py", line 1481, in _execute_clauseelement
+    ret = self._execute_context(
+  File "E:\messages\python\lib\site-packages\sqlalchemy\engine\base.py", line 1845, in _execute_context
+    self._handle_dbapi_exception(
+  File "E:\messages\python\lib\site-packages\sqlalchemy\engine\base.py", line 2026, in _handle_dbapi_exception
+    util.raise_(
+  File "E:\messages\python\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "E:\messages\python\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
+    self.dialect.do_execute(
+  File "E:\messages\python\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
+[SQL: SELECT user.id AS user_id, user.email AS user_email, user.username AS user_username, user.password AS user_password, user.is_manager AS user_is_manager, user.date_created AS user_date_created 
+FROM user 
+WHERE user.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('1204863763@qq.com', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+format = '2021-12-07 23:19:02,101 - website - ERROR - Exception on /sign_up [POST]-log_exception',
+Traceback (most recent call last):
+  File "E:\messages\python\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
+    self.dialect.do_execute(
+  File "E:\messages\python\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: user
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\messages\python\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\messages\python\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\messages\python\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "E:\messages\python\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "E:\messages\python\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\messages\python\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Web3\cw2\blog\Flask-Blog-Tutorial-main\tutorial5\website\auth.py", line 41, in sign_up
+    email_exists = User.query.filter_by(email=email).first()
+  File "E:\messages\python\lib\site-packages\sqlalchemy\orm\query.py", line 2810, in first
+    return self.limit(1)._iter().first()
+  File "E:\messages\python\lib\site-packages\sqlalchemy\orm\query.py", line 2894, in _iter
+    result = self.session.execute(
+  File "E:\messages\python\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "E:\messages\python\lib\site-packages\sqlalchemy\engine\base.py", line 1614, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "E:\messages\python\lib\site-packages\sqlalchemy\sql\elements.py", line 325, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "E:\messages\python\lib\site-packages\sqlalchemy\engine\base.py", line 1481, in _execute_clauseelement
+    ret = self._execute_context(
+  File "E:\messages\python\lib\site-packages\sqlalchemy\engine\base.py", line 1845, in _execute_context
+    self._handle_dbapi_exception(
+  File "E:\messages\python\lib\site-packages\sqlalchemy\engine\base.py", line 2026, in _handle_dbapi_exception
+    util.raise_(
+  File "E:\messages\python\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "E:\messages\python\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
+    self.dialect.do_execute(
+  File "E:\messages\python\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
+[SQL: SELECT user.id AS user_id, user.email AS user_email, user.username AS user_username, user.password AS user_password, user.is_manager AS user_is_manager, user.date_created AS user_date_created 
+FROM user 
+WHERE user.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('1204863763@qq.com', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
