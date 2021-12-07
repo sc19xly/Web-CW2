@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, request, flash, Response
+from flask import Blueprint, render_template, redirect, url_for, request, flash
 from . import db
 from .models import User
 from flask_login import login_user, logout_user, login_required, current_user
@@ -71,7 +71,9 @@ def logout():
     logout_user()
     return redirect(url_for("views.home"))
 
-@auth.route("/change_password",methods=['GET', 'POST'])
+
+@auth.route("/change_password", methods=['GET', 'POST'])
+@login_required
 def change_password():
     if request.method == 'POST':
         email = request.form.get("email")
@@ -99,6 +101,7 @@ def change_password():
             db.session.add(current_user)
             db.session.commit()
             flash('Password Changed!')
+            logout_user()
             return redirect(url_for('auth.login'))
         return redirect(url_for("auth.change_password"))
 
@@ -135,8 +138,6 @@ def new_manager():
 
 
 @auth.route("/forget_password", methods=['POST', 'GET'])
-
-
 def forget_password():
     if request.method == 'POST':
         email = request.form.get("email")
@@ -144,8 +145,8 @@ def forget_password():
 
         user = User.query.filter_by(email=email).first()
         if user:
-            if user.username==username:
-                if user.email==email:
+            if user.username == username:
+                if user.email == email:
                     return redirect(url_for("auth.change_password"))
                 else:
                     flash('Email is incorrect.', category='error')
@@ -156,6 +157,5 @@ def forget_password():
         else:
             flash('User does not exist.', category='error')
             return redirect(url_for("auth.forget_password"))
-        return redirect(url_for("auth.forget_password"))
 
     return render_template("forget_password.html", user=current_user)

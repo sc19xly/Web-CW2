@@ -39,6 +39,81 @@ class TestAuth:
         assert response.status_code == 200
         assert b"Posts" in response.data
 
+        response = test_client.post(
+            "/sign_up",
+            data={
+                "email": "1204863763@qq.com",
+                "username": "mockusername1",
+                "password1": "Mockpassword123!",
+                "password2": "Mockpassword123!",
+            },
+            follow_redirects=True,
+        )
+
+        assert response is not None
+        assert response.status_code == 200
+        assert b"Sign Up" in response.data
+
+        response = test_client.post(
+            "/sign_up",
+            data={
+                "email": "1205863763@qq.com",
+                "username": "mockusername",
+                "password1": "Mockpassword123!",
+                "password2": "Mockpassword123!",
+            },
+            follow_redirects=True,
+        )
+
+        assert response is not None
+        assert response.status_code == 200
+        assert b"Sign Up" in response.data
+
+        response = test_client.post(
+            "/sign_up",
+            data={
+                "email": "1205863763@qq.com",
+                "username": "mockusername",
+                "password1": "Mockpassword123!",
+                "password2": "Mockpassword123!!",
+            },
+            follow_redirects=True,
+        )
+
+        assert response is not None
+        assert response.status_code == 200
+        assert b"Sign Up" in response.data
+
+        response = test_client.post(
+            "/sign_up",
+            data={
+                "email": "1204863763@qq.com",
+                "username": "mockusername1",
+                "password1": "123!",
+                "password2": "123!",
+            },
+            follow_redirects=True,
+        )
+
+        assert response is not None
+        assert response.status_code == 200
+        assert b"Sign Up" in response.data
+
+        response = test_client.post(
+            "/sign_up",
+            data={
+                "email": "1204863763qq.com",
+                "username": "mockusername",
+                "password1": "123!",
+                "password2": "123!",
+            },
+            follow_redirects=True,
+        )
+
+        assert response is not None
+        assert response.status_code == 200
+        assert b"Sign Up" in response.data
+
     def test_get_login(self, test_client):
         """
         Test GET request to the /login route to assert the login page is returned.
@@ -57,6 +132,7 @@ class TestAuth:
         """
         password = "Mockpassword123!"
         username = "mockusername"
+        email1 = "1205863763@qq.com"
         app_user = User(email="1204863763@qq.com", username=username, password=generate_password_hash(
             password, method='Sha256'))
         db.session.add(app_user)
@@ -70,7 +146,17 @@ class TestAuth:
 
         assert response is not None
         assert response.status_code == 200
-        assert b"Hello,mockusername!" in response.data
+        assert b"Logout" in response.data
+
+        response = test_client.post(
+            "/login",
+            data={"email": email1, "password": password},
+            follow_redirects=True,
+        )
+
+        assert response is not None
+        assert response.status_code == 200
+        assert b"Login" in response.data
 
     def test_post_logout(self, test_client):
         """
@@ -92,3 +178,123 @@ class TestAuth:
         assert response1 is not None
         assert response1.status_code == 200
         assert b'Home' in response1.data
+
+    def test_change_password(self, test_client):
+        '''
+        test /change_password
+        :param test_client:
+        :return:
+        '''
+        password = "Mockpassword123!"
+        email = "1204863763@qq.com"
+        app_user = User(username="mockusername", email=email, password=generate_password_hash(password,
+                                                                                              method='Sha256'))
+        db.session.add(app_user)
+        db.session.commit()
+        helpers.login(test_client, app_user.email, password)
+
+        response = test_client.post(
+            "/change_password",
+            data={
+                "email": "1204863763@qq.com",
+                "username": "mockusername",
+                "password1": "Mockpassword123!",
+                "password2": "Mockpassword123!",
+            },
+            follow_redirects=True,
+        )
+
+        assert response is not None
+        assert response.status_code == 200
+        assert b"Change Password" in response.data
+
+        response = test_client.post(
+            "/change_password",
+            data={
+                "email": "1204863763@qq.com",
+                "username": "mockusername1",
+                "password1": "Mockpassword123!",
+                "password2": "Mockpassword123!",
+            },
+            follow_redirects=True,
+        )
+
+        assert response is not None
+        assert response.status_code == 200
+        assert b"Change Password" in response.data
+
+        response = test_client.post(
+            "/change_password",
+            data={
+                "email": "1205863763@qq.com",
+                "username": "mockusername",
+                "password1": "Mockpassword123!",
+                "password2": "Mockpassword123!",
+            },
+            follow_redirects=True,
+        )
+
+        assert response is not None
+        assert response.status_code == 200
+        assert b"Change Password" in response.data
+
+        response = test_client.post(
+            "/change_password",
+            data={
+                "email": "1205863763@qq.com",
+                "username": "mockusername",
+                "password1": "Mockpassword123!",
+                "password2": "Mockpassword123!!",
+            },
+            follow_redirects=True,
+        )
+
+        assert response is not None
+        assert response.status_code == 200
+        assert b"Change Password" in response.data
+
+        response = test_client.post(
+            "/change_password",
+            data={
+                "email": "1204863763@qq.com",
+                "username": "mockusername1",
+                "password1": "123!",
+                "password2": "123!",
+            },
+            follow_redirects=True,
+        )
+
+        assert response is not None
+        assert response.status_code == 200
+        assert b"Change Password" in response.data
+
+        response = test_client.post(
+            "/change_password",
+            data={
+                "email": "1204863763qq.com",
+                "username": "mockusername1",
+                "password1": "123!",
+                "password2": "123!",
+            },
+            follow_redirects=True,
+        )
+
+        assert response is not None
+        assert response.status_code == 200
+        assert b"Change Password" in response.data
+
+        response = test_client.post(
+            "/change_password",
+            data={
+                "email": "1204863763qq.com",
+                "username": "mockusername",
+                "password1": "123!!!",
+                "password2": "123!!!",
+            },
+            follow_redirects=True,
+        )
+
+        assert response is not None
+        assert response.status_code == 200
+        assert b"Login" in response.data
+

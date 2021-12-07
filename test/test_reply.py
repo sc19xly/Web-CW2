@@ -58,8 +58,7 @@ class TestReply:
         assert response.status_code == 200
         assert b"username" in response.data
 
-
-    def test_post_delete_reply(self, test_client):
+    def test_post_delete_comment(self, test_client):
         """
         Test POST request to the /community/_/post/_/reply/_/delete route to assert the
         reply is successfully deleted.
@@ -86,4 +85,3 @@ class TestReply:
         assert response is not None
         assert response.status_code == 302
         assert b"username" not in response.data
-
