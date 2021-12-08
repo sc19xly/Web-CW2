@@ -54,7 +54,7 @@
               </div>
               <div>
                 <small class="text-muted"> {{comment.date_created}}</small>
-                {% if user.id == comment.author or user.id == post.author %}
+                {% if user.id == comment.author or user.id == post.author or user.is_manager == True%}
                 <div class="btn-group">
                   <button
                     type="button"
