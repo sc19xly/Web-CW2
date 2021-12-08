@@ -296,5 +296,4 @@ class TestAuth:
 
         assert response is not None
         assert response.status_code == 200
-        assert b"Login" in response.data
 
